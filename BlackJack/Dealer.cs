@@ -18,6 +18,8 @@ namespace BlackJack
 		public Hand Hand { get; set; }
 		public string Name { get; set; }
 
+		public int Points { get; set; }
+
 		public void Deal(IEnumerable<IPlayer> players)
 		{
 			_Deck.Shuffle();
@@ -37,8 +39,15 @@ namespace BlackJack
 		public void TakeTurn(IEnumerable<IPlayer> players)
 		{
 			var maxUnbustedValue = players
-				.Where(p => p.Hand.Value <= 21)
-				.Max(p => p.Hand.Value);
+				.Select(p => p.Hand.Value)
+				.Where(v => v <= 21)
+				.DefaultIfEmpty()
+				.Max();
+
+			if (maxUnbustedValue == 0)
+			{
+				return;
+			}
 
 			while(Hand.Value < 17)
 			{

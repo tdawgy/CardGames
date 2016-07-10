@@ -3,7 +3,7 @@ namespace PlayingCards.Cards
 {
 	public class Rank
 	{
-		public Rank(string name, int lowValue, int highValue = 0)
+		public Rank(string name, int lowValue, int highValue)
 		{
 			this.Name = name;
 			this.HighValue = highValue;

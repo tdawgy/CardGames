@@ -25,8 +25,9 @@ namespace PlayingCards.Cards
 
 		public string Name
 		{
-			get { 
-				return this._Rank.Name + " of " + this._Suit.Name; 
+			get 
+			{
+				return this._Rank.Name + " of " + this._Suit.Name;
 			}
 		}
 

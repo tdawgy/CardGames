@@ -7,7 +7,7 @@ namespace BlackJack
 {
 	public class Hand : List<Card>
 	{
-		public void Add(Card card)
+		public new void Add(Card card)
 		{
 			base.Add(card);
 		

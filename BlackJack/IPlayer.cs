@@ -5,5 +5,7 @@ namespace BlackJack
 	{
 		string Name { get; set; }
 		Hand Hand { get; set; }
+
+		int Points { get; set; }
 	}
 }
