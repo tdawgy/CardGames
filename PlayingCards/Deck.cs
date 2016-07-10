@@ -33,9 +33,12 @@ namespace PlayingCards
 			this._Cards = new Stack<Card>(cardList);
 		}
 
-		public Card DrawCard() 
+		public Card DrawCard(bool isFaceUp)
 		{
-			return this._Cards.Pop();
+			var drawnCard = this._Cards.Pop();
+			drawnCard.IsFaceUp = isFaceUp;
+
+			return drawnCard;
 		}
 
 		private void Build(int numberOfDecks = 1)

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BlackJack
 {
-	public class Player
+	public class Player: IPlayer
 	{
-		
+		public Player()
+		{
+			this.Hand = new Hand();
+		}
+
+		public Hand Hand { get; set; }
 	}
 }
