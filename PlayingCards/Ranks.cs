@@ -12,7 +12,6 @@ namespace PlayingCards
 
 		private void LoadRanks()
 		{
-			this.Add(new Rank("One", 1));
 			this.Add(new Rank("Two", 2));
 			this.Add(new Rank("Three", 3));
 			this.Add(new Rank("Four", 4));

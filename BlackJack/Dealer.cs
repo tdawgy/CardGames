@@ -10,19 +10,17 @@ namespace BlackJack
 
 		public Dealer(Deck deck)
 		{
+			this.Name = "Dealer";
 			this._Deck = deck;
 			this.Hand = new Hand();
 		}
 
 		public Hand Hand { get; set; }
-
-		public void StartGame()
-		{
-			this._Deck.Shuffle();
-		}
+		public string Name { get; set; }
 
 		public void Deal(IEnumerable<IPlayer> players)
 		{
+			_Deck.Shuffle();
 			DealPlayer(this);
 
 			foreach (var player in players)

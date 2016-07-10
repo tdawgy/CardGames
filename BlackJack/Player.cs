@@ -9,5 +9,6 @@ namespace BlackJack
 		}
 
 		public Hand Hand { get; set; }
+		public string Name { get; set; }
 	}
 }

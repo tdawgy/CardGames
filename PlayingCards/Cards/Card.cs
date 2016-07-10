@@ -23,6 +23,13 @@ namespace PlayingCards.Cards
 			get { return _Rank; }
 		}
 
+		public string Name
+		{
+			get { 
+				return this._Rank.Name + " of " + this._Suit.Name; 
+			}
+		}
+
 		public bool IsFaceUp { get; set; }
 	}
 }
