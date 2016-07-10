@@ -30,6 +30,11 @@ namespace BlackJack
 			}
 		}
 
+		public void Hit(IPlayer player)
+		{
+			player.Hand.Add(this._Deck.DrawCard(true));
+		}
+
 		private void DealPlayer(IPlayer player)
 		{
 			var faceDownCard = this._Deck.DrawCard(false);
