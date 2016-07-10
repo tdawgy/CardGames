@@ -39,6 +39,9 @@ namespace BlackJack
 			
 			_Dealer.TakeTurn(_Players);
 
+			var faceDownCard = _Dealer.Hand.First(c => c.IsFaceUp == false);
+			faceDownCard.IsFaceUp = true;
+
 			WritePlayerHand(_Dealer, true);
 			
 			Console.WriteLine("press a key to exit");
@@ -47,10 +50,15 @@ namespace BlackJack
 
 		private void PlayersTurn(Player player) 
 		{
-			while (Console.ReadKey(true).Key.ToString() == "D1" && player.Hand.Value < 21)
+			while (player.Hand.Value < 21 && Console.ReadKey(true).Key.ToString() == "D1")
 			{
 				_Dealer.Hit(player);
 				WritePlayerHand(player, false);
+
+				if (player.Hand.Value > 21)
+				{
+					Console.WriteLine(player.Name + " Busted!!");
+				}
 			}
 		}
 
@@ -68,10 +76,6 @@ namespace BlackJack
 			}
 					
 			Console.WriteLine(player.Name + "'s Hand ({0}): {1}", player.Hand.Value, string.Join("", cardNames));
-			if (player.Hand.Value > 21)
-			{
-				Console.WriteLine(player.Name + " Busted!!");
-			}
 		}
 	}
 }
