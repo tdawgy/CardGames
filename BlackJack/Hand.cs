@@ -1,4 +1,5 @@
-﻿using PlayingCards.Cards;
+﻿using PlayingCards;
+using PlayingCards.Cards;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,17 +10,20 @@ namespace BlackJack
 		public void Add(Card card)
 		{
 			base.Add(card);
+		
+			HasHighAce = false;
 			RecalculateValue();
 		}
 
 		public int Value { get; set; }
+		public bool HasHighAce { get; set; }
 
 		private void RecalculateValue() 
 		{
 			var newValue = 0;
-			var acesLastHand = this.OrderBy(c => c.Rank.HighValue);
+			var acesLast = this.OrderBy(c => c.Rank.HighValue);
 		
-			foreach (var card in acesLastHand)
+			foreach (var card in acesLast)
 			{ 
 				if((newValue + card.Rank.HighValue) >= 21)
 				{
@@ -27,7 +31,8 @@ namespace BlackJack
 				}
 				else
 				{
-					newValue += card.Rank.LowValue;
+					newValue += card.Rank.HighValue;
+					HasHighAce = card.Rank.HighValue == 11 ? true : false;
 				}
 			}
 
