@@ -7,7 +7,7 @@ namespace PlayingCards
 {
 	public class Deck
 	{
-		private List<Card> _Cards;
+		private Stack<Card> _Cards;
 		private Random _Random;
 
 		public Deck()
@@ -15,24 +15,33 @@ namespace PlayingCards
 			this._Random = new Random(Guid.NewGuid().GetHashCode());
 
 			this.Build();
-			this.Shuffle();
 		}
 
-		private void Shuffle()
+		public void Shuffle()
 		{
-			for (var i = 0; i < this._Cards.Count; i++)
+			var cardList = this._Cards.ToList();
+
+			for (var i = 0; i < this._Cards.Count(); i++)
 			{
 				var destination = this._Random.Next();
+				var card = cardList[destination];
 
-				var card = this._Cards[destination];
-				this._Cards[destination] = this._Cards[i];
-				this._Cards[i] = card;
+				cardList[destination] = cardList[i];
+				cardList[i] = card;
 			}
+
+			this._Cards = new Stack<Card>(cardList);
+		}
+
+		public Card DrawCard() 
+		{
+			return this._Cards.Pop();
 		}
 
 		private void Build(int numberOfDecks = 1)
 		{
-			this._Cards = new List<Card>();
+			var numberOfCards = numberOfDecks * 52;
+			this._Cards = new Stack<Card>();
 
 			var suits = new Suits();
 			var ranks = new Ranks();
