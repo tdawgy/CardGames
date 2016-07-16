@@ -54,11 +54,11 @@ This is an opportunity to show off your coding experience and ability in a pract
 10. The player signals they are done taking cards by calling “hold”
 11. The dealer / computer takes their turn after all of the players have finished with their turns. When the dealer holds, their hidden card is then shown.
 12. Scoring should happen as follows:
-- A player win over the dealer is worth 1 point
-- A dealer win over a player is worth 1 point
-- A player or dealer win with two cards that total 21 is worth 2 points
-- A player and dealer each with two cards that total 21 are both awarded 1 point
+	- A player win over the dealer is worth 1 point
+	- A dealer win over a player is worth 1 point
+	- A player or dealer win with two cards that total 21 is worth 2 points
+	- A player and dealer each with two cards that total 21 are both awarded 1 point
 13. The dealer will be controlled by the following rules:
-- The dealer must hit if his total is below 17
-- If the dealer has any high aces (counted as 11) as part of his total, he must hit while his count is below 18.
-- If any player has a value greater than their current value, the dealer must continue to hit. E.g. if a player has 20, the dealer must hit until they have 20 or greater.
+	- The dealer must hit if his total is below 17
+	- If the dealer has any high aces (counted as 11) as part of his total, he must hit while his count is below 18.
+	- If any player has a value greater than their current value, the dealer must continue to hit. E.g. if a player has 20, the dealer must hit until they have 20 or greater.
