@@ -1,7 +1,4 @@
-# PlayingCards
-
-This project was a timed homework assignment, I was allowed roughly 4 hours of time to make as much progress as possible. Below were the directions I was given.
-
+# BlackJack
 ## Instructions
 This is an opportunity to show off your coding experience and ability in a practical way. You will be doing this by coding a simple game. The requirements and rules are found below. Be sure to read the requirements carefully as they may be slightly different than you may expect.
 
